@@ -57,6 +57,14 @@ probably isn't a real constraint, but the LLM's size will need picking
 with that budget in mind rather than assumed away. No model has been
 chosen yet.
 
+## Real connectome data confirmed as the goal, not staying decorative
+The procedural human-brain-styled graph was always a placeholder — the
+original motivating idea, going back to before this app existed, was a
+real fly brain (FlyWire's connectome reconstruction, flywire.ai). User
+confirmed this is still the goal rather than settling for the decorative
+version. Not started — see the open questions logged in plans.md under
+this same item (data source/size, node/edge shape, render scale).
+
 ## Force-pushed the app over the old repo contents
 The repo previously held only the standalone `index.html` demo, which
 shares no git history with the new app's file tree, so force-push was

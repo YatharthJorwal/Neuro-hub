@@ -21,17 +21,36 @@ Two things got settled without being started:
 ## Still open: what to build first, and when
 As of this doc, the user paused deliberately — decided the two
 directions above, then said "nothing yet, docs are enough for today."
-Nothing has been built since. The three candidates from before are
-still the three candidates, just with two of them now pointed in a
-known direction instead of an open question:
-1. Build the real (local) embedder
-2. Build the chat layer (local LLM)
-3. Wire real connectome/spiking data into the visualization — still not
-   confirmed whether this is still wanted, or whether staying decorative
-   and putting effort into chat + memory instead is fine
+Nothing has been built since. Then confirmed the third candidate:
+**real connectome data is wanted, not staying decorative** — the
+original motivating idea, referencing FlyWire's public connectome
+reconstruction (flywire.ai) as the visual/data target: real fly brain,
+real neurons, real synapses, not the current procedurally generated
+human-brain-styled graph.
 
-Don't assume which one starts next, or that any building has resumed,
-without checking what the user says at the start of the session.
+That's now 3 for 3 on direction:
+1. Real (local) embedder — direction decided, not built
+2. Chat layer (local LLM) — direction decided, not built
+3. Real connectome data in the visualization — **confirmed wanted**,
+   not started, and the least scoped of the three. Open technical
+   questions nobody's answered yet:
+   - Data source: FlyWire's public exports (via Codex / CAVE) are the
+     obvious target, but the full adult fly brain is ~139k neurons and
+     tens of millions of synapses — likely too much to ship or render
+     at full fidelity. Needs a decision on a subset (a few neuropil
+     regions? a cell-type sample?) or an aggressive downsample.
+   - `brain-scene.ts` currently expects one node shape (id, region,
+     x/y/z, radius, hue/sat/lit) and one edge shape (a, b, length) —
+     real data needs a conversion step into that shape, or the shape
+     needs to change to carry real IDs/cell types/neuropil names.
+   - Rendering the current procedural graph is ~600 nodes. Real data at
+     any meaningful scale is one to several orders of magnitude more —
+     unverified whether the current InstancedMesh approach holds up on
+     the 3060 without changes.
+
+None of the three next-step candidates has been started. Don't assume
+one has, or that today's session picked which one goes first — check
+what the user says.
 
 ## Not started, no decision made yet
 - Any frontend UI for chat or for browsing/editing stored memories.
